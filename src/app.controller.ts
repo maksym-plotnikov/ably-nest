@@ -1,12 +1,15 @@
-import { Get, Controller } from '@nestjs/common';
-import { AppService } from './app.service';
+import { Get, Controller, Res } from '@nestjs/common';
+import { Response } from 'express';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
-
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  root(@Res() res) {
+    res.render('index');
+  }
+
+  @Get('table')
+  table(@Res() res: Response) {
+    res.render('table');
   }
 }
