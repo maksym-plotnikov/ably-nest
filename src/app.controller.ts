@@ -7,11 +7,11 @@ import {
 } from '@nestjs/common';
 import { Response } from 'express';
 
-export class ForbiddenException extends HttpException {
-  constructor() {
-    super('Forbidden', HttpStatus.FORBIDDEN);
-  }
-}
+// export class ForbiddenException extends HttpException {
+//   constructor() {
+//     super('Forbidden', HttpStatus.FORBIDDEN);
+//   }
+// }
 
 @Controller()
 export class AppController {
