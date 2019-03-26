@@ -6,9 +6,9 @@ export class RolesGuard implements CanActivate {
   constructor(private readonly reflector: Reflector) {}
 
   canActivate(context: ExecutionContext): boolean {
-    // In the node.js world, it's a common practice to attach the authorized user to the request object.
-    // That's why we assumed that request.user contains the user instance.
-    const roles = this.reflector.get<string[]>('roles', context.getClass()); // To extract the controller metadata,
+    // We used getHandler() in order to reflect the metadata
+    // because it's a reference to the route handler function.
+    const roles = this.reflector.get<string[]>('roles', context.getHandler());
     if (!roles) {
       return true;
     }

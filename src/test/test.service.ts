@@ -8,6 +8,6 @@ export class TestService {
   }
 
   findOne(id) {
-    return 'this found inside test service!';
+    return `Found 1 occurencies for ${id}`;
   }
 }
