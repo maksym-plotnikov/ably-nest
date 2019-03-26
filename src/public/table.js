@@ -265,7 +265,7 @@ const app = {
     const baseURL = 'http://localhost:3000';
     axios
       .post(`${baseURL}/table`, formData)
-      .then(response => console.log(response));
+      .then(response => console.log(data.status, data.statusText));
   },
 
   addRow(dataTable, data) {
@@ -294,7 +294,6 @@ const app = {
     const channel = ably.channels.get('ably-nest');
     // Get data
     channel.subscribe('employees', res => {
-      console.log(res.data.employee);
       this.addRow(dataTable, res.data.employee);
     });
   },

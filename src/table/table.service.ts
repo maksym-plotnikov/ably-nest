@@ -2,9 +2,9 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class TableService {
-  add(newEmployee) {
+  add(newEmployee: string[]) {
     const Ably = require('ably');
-    const {ABLY_KEY, ABLY_CHANNEL } = process.env;
+    const { ABLY_KEY, ABLY_CHANNEL } = process.env;
     const ably = new Ably.Realtime(ABLY_KEY);
     const channel = ably.channels.get(ABLY_CHANNEL);
     const data = {

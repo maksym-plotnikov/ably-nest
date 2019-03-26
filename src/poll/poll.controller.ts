@@ -11,9 +11,9 @@ export class PollController {
   constructor(private pollService: PollService) {}
 
   @Post()
-  @HttpCode(204)
+  @HttpCode(201)
   submitVote(@Res() res: Response, @Body() poll: string) {
     this.pollService.create(poll);
-    res.render('index');
+    return res.end();
   }
 }
