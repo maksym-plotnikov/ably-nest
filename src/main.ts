@@ -9,6 +9,7 @@ import * as express from 'express';
 import * as path from 'path';
 
 async function bootstrap() {
+  // cast platform type e.g. 'express' or 'fastify'
   const app = await NestFactory.create<NestExpressApplication>(
     ApplicationModule,
   );
