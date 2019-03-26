@@ -7,6 +7,12 @@ import {
 } from '@nestjs/common';
 import { Response } from 'express';
 
+export class ForbiddenException extends HttpException {
+  constructor() {
+    super('Forbidden', HttpStatus.FORBIDDEN);
+  }
+}
+
 @Controller()
 export class AppController {
   @Get()
@@ -21,6 +27,7 @@ export class AppController {
 
   @Get('error')
   async findAll() {
+    // throw new ForbiddenException();
     throw new HttpException(
       {
         status: HttpStatus.FORBIDDEN,
