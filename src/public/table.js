@@ -253,7 +253,7 @@ const app = {
       $('#name').val(),
       $('#position').val(),
       $('#office').val(),
-      $('#extn').val(),
+      $('#id').val(),
       $('#startDate')
         .val()
         .replace(new RegExp('-', 'g'), '/'),
@@ -265,7 +265,7 @@ const app = {
     const baseURL = 'http://localhost:3000';
     axios
       .post(`${baseURL}/table`, formData)
-      .then(response => console.log(data.status, data.statusText));
+      .then(res => console.log(res.status, res.statusText));
   },
 
   addRow(dataTable, data) {
